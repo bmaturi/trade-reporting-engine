@@ -5,6 +5,8 @@ import com.vanguard.tradereportingengine.service.TradeReportingEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,11 +19,13 @@ public class TradeReportingEngineApplication {
 	private TradeReportingEngine service;
 
 	@RequestMapping(value = "/execute", method = RequestMethod.GET)
-	public void executeProgram() {
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity executeProgram() {
 		try {
 			service.processInputFiles();
+			return new ResponseEntity(HttpStatus.OK);
 		} catch (Exception e) {
-			System.err.println(e);
+			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

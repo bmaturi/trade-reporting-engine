@@ -14,3 +14,7 @@ Assumptions :
 input files are placed in the 'input' folder of the project resources directory
 File Format event'N'.xml where N is sequential from 0 to N. 
 output is printed to stdout
+
+
+java -Dfile.encoding=UTF-8 -cp ./target/trade-reporting-engine-0.0.1.jar
+ com.vanguard.tradereportingengine.TradeReportingEngineApplication
