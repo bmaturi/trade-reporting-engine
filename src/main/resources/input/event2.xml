@@ -15,7 +15,7 @@
     <sendTo>BIC16C</sendTo>
     <creationTimestamp>2009-01-27T15:38:00-00:00</creationTimestamp>
   </header>
-<!--5.0 Messaging: added
+  <!--5.0 Messaging: added
                 <isCorrection>
                 <correlationId>
                 <sequenceNumber>
@@ -151,4 +151,3 @@
     <partyName>Rusty</partyName>
   </party>
 </requestConfirmation>
-

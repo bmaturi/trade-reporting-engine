@@ -18,7 +18,11 @@ public class TradeReportingEngineApplication {
 
 	@RequestMapping(value = "/execute", method = RequestMethod.POST)
 	public void executeProgram() {
-		service.processInputFiles();
+		try {
+			service.processInputFiles();
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 	}
 
 	public static void main(String[] args) {
