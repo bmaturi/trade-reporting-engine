@@ -16,7 +16,7 @@ public class TradeReportingEngineApplication {
 	@Autowired
 	private TradeReportingEngine service;
 
-	@RequestMapping(value = "/execute", method = RequestMethod.POST)
+	@RequestMapping(value = "/execute", method = RequestMethod.GET)
 	public void executeProgram() {
 		try {
 			service.processInputFiles();
