@@ -20,7 +20,7 @@ class TradeReportingEngineApplicationTests {
 	// and returns an Ok status
 	@Test
 	void executeProgram() throws Exception {
-		mockMvc.perform(post("/execute").accept(MediaType.ALL)).andExpect(status().isOk());
+		mockMvc.perform(get("/execute").accept(MediaType.ALL)).andExpect(status().isOk());
 	}
 
 }
