@@ -1,6 +1,5 @@
 package com.vanguard.tradereportingengine.service;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -35,7 +34,7 @@ public class TradeReportingEngineTest {
     }
 
     @Test
-    void readFileAndFilterValidFile() throws Exception {
-        assertNotNull(engine.readFileAndFilter("input/invalid.xml"));
+    void readFileAndFilterWithAnagram() throws Exception {
+        assertNull(engine.readFileAndFilter("input/anagram.xml"));
     }
 }

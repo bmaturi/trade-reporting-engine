@@ -10,8 +10,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
+import com.vanguard.tradereportingengine.service.helper.Anagram;
 
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -71,9 +70,9 @@ public class TradeReportingEngineImpl implements TradeReportingEngine {
             expr = xpath.compile(BUYER_PARTY_REF);
             String buyerParty = (String) expr.evaluate(doc, XPathConstants.STRING);
 
-            if (("EMU_BANK".equals(sellerParty) && "AUD".equals(currency))
-                    || ("BISON_BANK".equals(sellerParty) && "USD".equals(currency))
-                            && !isAnagram(buyerParty, sellerParty)) {
+            if ((("EMU_BANK".equals(sellerParty) && "AUD".equals(currency))
+                    || ("BISON_BANK".equals(sellerParty) && "USD".equals(currency)))
+                    && !Anagram.isAnagram(buyerParty, sellerParty)) {
                 output = buyerParty + "," + sellerParty + "," + amount + "," + currency;
             }
         } catch (SAXParseException spe) {
@@ -83,20 +82,6 @@ public class TradeReportingEngineImpl implements TradeReportingEngine {
             throw e;
         }
         return output;
-    }
-
-    // Check for seller and buyer Anagram
-    private boolean isAnagram(String input1, String input2) {
-        if (input1.length() != input2.length()) {
-            return false;
-        }
-        Multiset<Character> multiset1 = HashMultiset.create();
-        Multiset<Character> multiset2 = HashMultiset.create();
-        for (int i = 0; i < input1.length(); i++) {
-            multiset1.add(input1.charAt(i));
-            multiset2.add(input2.charAt(i));
-        }
-        return multiset1.equals(multiset2);
     }
 
 }
