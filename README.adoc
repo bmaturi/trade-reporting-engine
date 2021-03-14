@@ -1,20 +1,34 @@
-= trade-reporting-engine
+= Trade Reporting Engine
 
+This project reads a bunch of trade reporting files in xml format from the 'input' directory under resources and prints a csv formatted output while applying few filters. Spring boot was used in setting up the project and an api is also exposed.
 
-java 1.8
-SprintBoot 2.4.3
-local dev server - Apache Tomcat
-port :9990
+== System Requirements
+* Java 1.8 or higher
+* Apache maven
+* Postman (or similar tool)
 
-rest url to start the process :
-http://localhost:9990/execute
+== Technologies Used
 
-Assumptions :
+* Java 1.8
+* Spring Boot 2.4.3
+* Apache Tomcat (local dev server)
 
-input files are placed in the 'input' folder of the project resources directory
-File Format event'N'.xml where N is sequential from 0 to N. 
-output is printed to stdout
+== Assumptions
+* Files to be reas are available in the 'input' directory under resources
+* file names are in the format event'N'.xml where N starts from 0. subsequent files need to be available sequentially. A missed file will stop the reading of files.
+* Output is printed to stdout.
 
+== Executing the solution
 
-java -Dfile.encoding=UTF-8 -cp ./target/trade-reporting-engine-0.0.1.jar
- com.vanguard.tradereportingengine.TradeReportingEngineApplication
+* Clone this repository onto your system
+* run the command "mvn spring-boot:run" in the project root directory to build, generate the artifacts and startup the app.
+* Using postman(or similar tool) send a request using the below details :
+
+[indent=0]
+----
+Method : GET
+URL : http://localhost:9990/execute
+----
+
+== License
+Copyright 2021 - Licensed to Bharath Maturi. Using part or all of the code needs explicit approval from Bharath Maturi.
