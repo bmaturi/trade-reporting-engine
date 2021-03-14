@@ -1,6 +1,6 @@
 = Trade Reporting Engine
 
-This project reads a bunch of trade reporting files in xml format from the 'input' directory under resources and prints a csv formatted output while applying few filters. Spring boot was used in setting up the project and an api is also exposed.
+This project reads a bunch of trade reporting files in xml format from the 'input' directory under resources and prints a csv formatted output while applying few filters and an  Anagram check for couple of fields.Spring boot was used in setting up the project and an api is also exposed.
 
 == System Requirements
 * Java 1.8 or higher
